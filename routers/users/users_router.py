@@ -29,8 +29,8 @@ def userByID(id: int, db: Session = Depends(get_db)):
     return users_controller.read_user_by_id(db, id)
 
 
-@router.put("/{id}")
-def updateUser(id: int, req: userBase, db: Session = Depends(get_db), dependencies=[Depends(accessUserToken)]):
+@router.put("/{id}", dependencies=[Depends(accessUserToken)])
+def updateUser(id: int, req: userBase, db: Session = Depends(get_db)):
     return users_controller.update(db, id, req)
 
 

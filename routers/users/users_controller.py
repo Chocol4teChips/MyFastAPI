@@ -31,7 +31,7 @@ def delete(db:Session, id: int):
     user = db.query(dbUser).filter(dbUser.id == id).first()
     db.delete(user)
     db.commit()
-    return JSONResponse(content={'details': f"inventory id {id} deleted"})
+    return JSONResponse(content={'details': f"user id {id} deleted"})
 
 
 def update(db:Session, id: int, req: userBase):
