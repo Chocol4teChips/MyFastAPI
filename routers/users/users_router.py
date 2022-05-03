@@ -1,4 +1,5 @@
 from fastapi import APIRouter, Depends
+from requests import session
 
 from sqlalchemy.orm import Session
 from models.database import get_db
@@ -11,11 +12,9 @@ router = APIRouter(prefix="/users", tags=["users"])
 
 
 
-
-# @router.get("/")
-# def get_all_user():
-#     return fake_user_db
-
+@router.get("/")
+def get_all_users(db:session = Depends(get_db)):
+    return users_controller.read_users(db)
 
 
 @router.post("/")

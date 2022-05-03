@@ -17,8 +17,8 @@ def create(db: Session, req: userBase):
     return new_user
 
 
-# def read_inventory(db: Session):
-#     return db.query(DbInventory).all()
+def read_users(db: Session):
+    return db.query(dbUser).all()
 
 
 # def read_inventory_by_id(db: Session, id: int):
