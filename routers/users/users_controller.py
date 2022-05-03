@@ -41,8 +41,8 @@ def update(db:Session, id: int, req: userBase):
     else:
         user.update(
             {
-            dbUser.username: req.username,
-            dbUser.password: hash.bcrypt(req.password)
+                dbUser.username: req.username,
+                dbUser.password: Hash.bcrypt(req.password)
             }
         )
         db.commit()

@@ -22,7 +22,7 @@ def register_user(req: userBase, db:Session = Depends(get_db)):
     return users_controller.create(db, req)
 
 
-@router.get("/{id}")
+@router.get("/{id}", response_model=UserDisplayBase)
 def userByID(id: int, db: Session = Depends(get_db)):
     return users_controller.read_user_by_id(db, id)
 
