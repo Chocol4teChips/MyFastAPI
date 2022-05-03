@@ -3,10 +3,10 @@ from sqlalchemy.orm import Session
 
 from fastapi.responses import JSONResponse
 # from sympy import content
-from models.users.users_model  import UserBase, UserDisplayBase, dbUser
+from models.users.users_model  import userBase, UserDisplayBase, dbUser
 
 
-def create(db: Session, req: UserBase):
+def create(db: Session, req: userBase):
     new_user = dbUser(
         username = req.username,
         password = req.password
